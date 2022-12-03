@@ -34,6 +34,23 @@ app.use(codeRouter);
 app.use(userRouter);
 app.use(downloadsRouter);
 
+app.get('/', (req, res) => {
+  return res.send(
+    `
+    Server Status: OK 
+    <br>\n
+    ----- routes ------- <br>\n
+    GET   #/codes   #/code:id   #/trashBin  <br>\n
+    POST  #/code   <br>\n
+    PUT   #/codes:id   <br>\n
+    DELETE  #/codes:id(auth)   #/trashBin:id   <br>\n
+    <br>\n
+    GET  #/download/ls   #/download/:sub/:programNo
+
+  `
+  );
+});
+
 app.listen(port, () => {
   console.log('Express running on port ' + port);
 });
