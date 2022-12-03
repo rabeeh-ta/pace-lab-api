@@ -75,7 +75,7 @@ router.delete('/codes/:id', authenticateJWT, async (req, res) => {
 });
 
 //? update a file
-router.put('/codes/:id', async (req, res) => {
+router.put('/codes/:id', authenticateJWT, async (req, res) => {
   const _id = req.params.id;
   const updates = Object.keys(req.body);
   const updateCode = req.body;
